@@ -16,16 +16,16 @@ export default function WhyPage() {
       <div className="min-h-screen bg-black text-white pt-20">
       {/* Hero Section - Enterprise Professional */}
       <section className="relative min-h-screen flex items-center justify-center px-8 overflow-hidden">
-        {/* SAINTSAL + YOU Background - FIXED LIKE HOMEPAGE */}
-        <div className="fixed inset-0 z-0">
+        {/* SAINTSAL + YOU Background - EXACT COPY */}
+        <div className="absolute inset-0 z-0">
           <Image
             src="/backgrounds/saintgotyoback.png"
-            alt="SaintSal + You - Enterprise Partnership"
+            alt="SaintSal + You - Enterprise Partnership"  
             fill
-            className="object-contain opacity-40"
+            className="object-cover opacity-30"
             priority
           />
-          <div className="absolute inset-0 bg-gradient-to-br from-black/50 via-transparent to-black/60" />
+          <div className="absolute inset-0 bg-black/40" />
         </div>
 
         {/* Animated Grid Overlay */}
