@@ -229,7 +229,13 @@ function ConsoleContent() {
                 onClick={() => router.push(`/agents/${agent.id}`)}
                 className="text-gray-400 hover:text-white transition"
               >
-                ⚙️ Settings
+                ⚙️ Agent Settings
+              </button>
+              <button 
+                onClick={() => router.push('/companions')}
+                className="text-gray-400 hover:text-white transition"
+              >
+                ← Companions
               </button>
             </div>
           </div>

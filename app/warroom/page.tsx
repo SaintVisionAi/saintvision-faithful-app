@@ -166,16 +166,18 @@ function WarRoomContent() {
       const agentContext = activeAgent ? `You are ${activeAgent.name}. ${activeAgent.description}. ${activeAgent.specialization ? `You specialize in ${activeAgent.specialization}.` : ''} ` : ''
       const enhancedPrompt = agentContext + userMessage
 
-      const response = await fetch('/api/sal/chat', {
+      // Route through new intelligence system
+      const response = await fetch('/api/warroom/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
-          message: enhancedPrompt,
-          threadId: threadId,
+          message: userMessage,
           agentId: activeAgent?.id,
           agentName: activeAgent?.name,
           model: selectedModel,
-          toolsEnabled: toolsEnabled
+          toolsEnabled: toolsEnabled,
+          emotionalContext: true,
+          hacpMode: true
         })
       })
 
@@ -434,7 +436,7 @@ function WarRoomContent() {
             <div className="flex items-center space-x-6">
               <button onClick={() => router.push('/pro')} className="text-gray-400 hover:text-white transition flex items-center space-x-2">
                 <span>←</span>
-                <span className="text-sm">Dashboard</span>
+                <span className="text-sm">Pro Dashboard</span>
               </button>
               <div className="text-sm text-gray-500">|</div>
               <div>
