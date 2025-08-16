@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html, body {
+    @apply h-full bg-black text-white;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Elite Yellow Accent */
+  .accent-yellow {
+    color: #FFD700;
+  }
+
+  .bg-accent-yellow {
+    background-color: #FFD700;
+  }
+
+  /* No blue - only black, white, yellow, gray */
+  button:not(.custom) {
+    @apply bg-yellow-500 text-black font-bold hover:bg-yellow-400;
+  }
+
+  input:focus {
+    @apply border-yellow-500 outline-none;
+  }
+}
+
+/* Clean Apple-like animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.5s ease-out;
+}
