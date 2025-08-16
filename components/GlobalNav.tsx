@@ -49,13 +49,13 @@ export default function GlobalNav() {
                 <button onClick={() => router.push('/playground')} className="text-white/70 hover:text-yellow-400 text-sm font-medium transition hover:scale-105">
                   Playground
                 </button>
-                <button onClick={() => router.push('/agents')} className="text-white/70 hover:text-blue-400 text-sm font-medium transition hover:scale-105">
-                  Agents
+                <button onClick={() => router.push('/companions')} className="text-white/70 hover:text-blue-400 text-sm font-medium transition hover:scale-105">
+                  🤖 Companions
                 </button>
                 <button onClick={() => router.push('/why')} className="text-white/70 hover:text-green-400 text-sm font-medium transition hover:scale-105">
                   Why
                 </button>
-                <button onClick={() => router.push('/pricing')} className="text-white/70 hover:text-purple-400 text-sm font-medium transition hover:scale-105">
+                <button onClick={() => router.push('/pricing/companions')} className="text-white/70 hover:text-purple-400 text-sm font-medium transition hover:scale-105">
                   Pricing
                 </button>
               </div>
