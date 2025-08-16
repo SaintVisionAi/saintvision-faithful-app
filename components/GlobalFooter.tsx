@@ -24,12 +24,13 @@ export default function GlobalFooter() {
           </div>
 
           <div>
-            <h4 className="text-xs tracking-widest text-gray-400 mb-4">PRODUCT</h4>
+            <h4 className="text-xs tracking-widest text-gray-400 mb-4">PLATFORM</h4>
             <div className="space-y-2">
-              <a href="/warroom" className="block text-sm text-gray-600 hover:text-white transition">Warroom</a>
-              <a href="/dashboard" className="block text-sm text-gray-600 hover:text-white transition">Dashboard</a>
-              <a href="/pro" className="block text-sm text-gray-600 hover:text-white transition">Enterprise</a>
-              <a href="/api" className="block text-sm text-gray-600 hover:text-white transition">API</a>
+              <a href="/warroom" className="block text-sm text-gray-600 hover:text-white transition">WarRoom</a>
+              <a href="/companions" className="block text-sm text-gray-600 hover:text-white transition">AI Agents</a>
+              <a href="/workstation" className="block text-sm text-gray-600 hover:text-white transition">Workstation</a>
+              <a href="/crm" className="block text-sm text-gray-600 hover:text-white transition">GHL Integration</a>
+              <a href="/connectivity" className="block text-sm text-gray-600 hover:text-white transition">Connectivity</a>
             </div>
           </div>
 
@@ -37,9 +38,10 @@ export default function GlobalFooter() {
             <h4 className="text-xs tracking-widest text-gray-400 mb-4">COMPANY</h4>
             <div className="space-y-2">
               <a href="/institute" className="block text-sm text-gray-600 hover:text-white transition">Institute</a>
-              <a href="/brokerage" className="block text-sm text-gray-600 hover:text-white transition">Brokerage</a>
-              <a href="/why" className="block text-sm text-gray-600 hover:text-white transition">Mission</a>
-              <a href="/legal" className="block text-sm text-gray-600 hover:text-white transition">Legal</a>
+              <a href="/svg" className="block text-sm text-gray-600 hover:text-white transition">SVG Brokerage</a>
+              <a href="/why" className="block text-sm text-gray-600 hover:text-white transition">Why SaintVision</a>
+              <a href="/enterprise" className="block text-sm text-gray-600 hover:text-white transition">Enterprise</a>
+              <a href="/legal" className="block text-sm text-gray-600 hover:text-white transition">Legal & Compliance</a>
             </div>
           </div>
 
@@ -47,8 +49,8 @@ export default function GlobalFooter() {
             <h4 className="text-xs tracking-widest text-gray-400 mb-4">SUPPORT</h4>
             <div className="space-y-2">
               <a href="/help" className="block text-sm text-gray-600 hover:text-white transition">24/7 Help Desk</a>
-              <a href="/docs" className="block text-sm text-gray-600 hover:text-white transition">Documentation</a>
-              <a href="/status" className="block text-sm text-gray-600 hover:text-white transition">System Status</a>
+              <a href="/pricing/companions" className="block text-sm text-gray-600 hover:text-white transition">Pricing</a>
+              <a href="/connectivity" className="block text-sm text-gray-600 hover:text-white transition">System Status</a>
               <div className="mt-4 pt-4 border-t border-gray-900">
                 <div className="text-xs text-green-500">● All Systems Operational</div>
               </div>

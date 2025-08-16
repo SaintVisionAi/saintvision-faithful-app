@@ -35,7 +35,7 @@ export default function Footer() {
               <Link href="/warroom" className="block text-gray-400 hover:text-white transition">
                 WarRoom
               </Link>
-              <Link href="/agents" className="block text-gray-400 hover:text-white transition">
+              <Link href="/companions" className="block text-gray-400 hover:text-white transition">
                 AI Agents
               </Link>
               <Link href="/workstation" className="block text-gray-400 hover:text-white transition">
