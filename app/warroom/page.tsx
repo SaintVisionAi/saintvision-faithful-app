@@ -74,11 +74,23 @@ function WarRoomContent() {
 
   const [conversations, setConversations] = useState<any[]>([])
 
+  const [selectedModel, setSelectedModel] = useState('gpt-4')
+  const [toolsEnabled, setToolsEnabled] = useState(true)
+  
+  const models = [
+    { id: 'gpt-4', name: 'GPT-4 Turbo', provider: 'OpenAI', status: 'active' },
+    { id: 'claude-4', name: 'Claude 4', provider: 'Anthropic', status: 'active' },
+    { id: 'o3-mini', name: 'O3 Mini', provider: 'OpenAI', status: 'active' },
+    { id: 'saintsal', name: 'SAINTSAL™', provider: 'SaintVision', status: 'active' }
+  ]
+
   const tools = [
-    { id: 'crm', name: 'CRM', icon: '📱', status: 'ready', description: 'Connect your CRM system' },
-    { id: 'calendar', name: 'Calendar', icon: '📅', status: 'ready', description: 'Schedule optimization' },
-    { id: 'analytics', name: 'Analytics', icon: '📈', status: 'ready', description: 'Business intelligence' },
-    { id: 'documents', name: 'Documents', icon: '📄', status: 'ready', description: 'Knowledge base' },
+    { id: 'web-search', name: 'Web Search', icon: '🔍', status: 'ready', description: 'Real-time web search' },
+    { id: 'code-interpreter', name: 'Code Interpreter', icon: '💻', status: 'ready', description: 'Python code execution' },
+    { id: 'image-generation', name: 'DALL-E 3', icon: '🎨', status: 'ready', description: 'Image generation' },
+    { id: 'file-upload', name: 'File Analysis', icon: '📁', status: 'ready', description: 'Document analysis' },
+    { id: 'ghl-crm', name: 'GHL CRM', icon: '🎯', status: 'connected', description: 'GoHighLevel integration' },
+    { id: 'calendar', name: 'Calendar', icon: '📅', status: 'ready', description: 'Schedule management' },
     { id: 'email', name: 'Email', icon: '✉️', status: 'ready', description: 'Communication hub' },
   ]
 
@@ -161,7 +173,9 @@ function WarRoomContent() {
           message: enhancedPrompt,
           threadId: threadId,
           agentId: activeAgent?.id,
-          agentName: activeAgent?.name
+          agentName: activeAgent?.name,
+          model: selectedModel,
+          toolsEnabled: toolsEnabled
         })
       })
 
@@ -267,13 +281,15 @@ function WarRoomContent() {
           <div className="p-4 border-b border-gray-900">
             <div className="flex items-center justify-between">
               <div className={`${sidebarOpen ? 'block' : 'hidden'}`}>
-                <Image
-                  src="/logos/saintsaltransparent.png"
-                  alt="SAINT SAL"
-                  width={140}
-                  height={60}
-                  className="object-contain"
-                />
+                <div className="flex items-center space-x-2">
+                  <div className="w-8 h-8 bg-yellow-500 rounded flex items-center justify-center text-black font-bold text-sm">
+                    SV
+                  </div>
+                  <div>
+                    <div className="font-bold text-white text-sm">SaintVisionAI™</div>
+                    <div className="text-xs text-yellow-500 font-light">Cookin' Knowledge</div>
+                  </div>
+                </div>
               </div>
               <button
                 onClick={() => setSidebarOpen(!sidebarOpen)}
@@ -416,19 +432,14 @@ function WarRoomContent() {
         <div className="bg-black border-b border-gray-900 px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-6">
-              <div className="flex items-center space-x-4">
-                <Image
-                  src="/logos/LOGOHEADER.png"
-                  alt="Logo"
-                  height={40}
-                  width={120}
-                  className="object-contain"
-                />
-                <div className="text-sm text-gray-500">|</div>
-                <div>
-                  <h1 className="text-lg font-light tracking-wider text-white">WARROOM</h1>
-                  <p className="text-xs text-gray-600">Strategic Command Center</p>
-                </div>
+              <button onClick={() => router.push('/pro')} className="text-gray-400 hover:text-white transition flex items-center space-x-2">
+                <span>←</span>
+                <span className="text-sm">Dashboard</span>
+              </button>
+              <div className="text-sm text-gray-500">|</div>
+              <div>
+                <h1 className="text-lg font-light tracking-wider text-white">WARROOM</h1>
+                <p className="text-xs text-gray-600">HACP™ Production Center • Live</p>
               </div>
               
               {/* Active Agent Indicator */}
@@ -582,44 +593,159 @@ function WarRoomContent() {
         </div>
       </div>
 
-      {/* Right Panel - Collapsible Tools/Integration */}
-      <div className={`${rightPanelOpen ? 'w-64' : 'w-16'} transition-all duration-300 bg-black border-l border-gray-900 flex flex-col`}>
+      {/* Right Panel - Tools & Model Selection */}
+      <div className={`${rightPanelOpen ? 'w-80' : 'w-16'} transition-all duration-300 bg-black border-l border-gray-900 flex flex-col`}>
         <div className="p-4 border-b border-gray-900">
           <div className={`${rightPanelOpen ? 'block' : 'hidden'}`}>
-            <h3 className="text-sm font-medium tracking-wider text-gray-400">INTEGRATIONS</h3>
+            <h3 className="text-sm font-medium tracking-wider text-gray-400">TOOLS</h3>
+            <div className="text-xs text-green-400 mt-1">PRO FEATURES</div>
           </div>
         </div>
         
-        <div className="flex-1 overflow-y-auto p-4">
+        <div className="flex-1 overflow-y-auto p-4 space-y-6">
           {rightPanelOpen ? (
-            <div className="space-y-3">
-              {tools.map(tool => (
-                <button
-                  key={tool.id}
-                  className="w-full p-3 bg-gray-950/30 hover:bg-gray-900/50 border border-gray-900 hover:border-gray-800 rounded-lg transition flex items-center justify-between group"
-                >
-                  <div className="flex items-center space-x-3">
-                    <span className="text-lg">{tool.icon}</span>
-                    <div className="flex-1">
-                      <div className="text-sm text-gray-400 group-hover:text-white">{tool.name}</div>
-                      <div className="text-xs text-gray-600">{tool.description}</div>
-                    </div>
-                  </div>
-                  <span className="text-xs text-gray-600">
-                    ○
-                  </span>
-                </button>
-              ))}
-              
-              <div className="pt-4 border-t border-gray-900">
-                <button className="w-full p-3 bg-gradient-to-r from-yellow-500/10 to-yellow-600/10 border border-yellow-500/30 rounded-lg text-yellow-500 hover:bg-yellow-500/20 transition">
-                  <span className="text-sm">Connect CRM →</span>
-                </button>
+            <>
+              {/* Model Selection */}
+              <div>
+                <h4 className="text-xs font-semibold text-gray-400 mb-3">🤖 AI MODEL</h4>
+                <div className="space-y-2">
+                  {models.map(model => (
+                    <button
+                      key={model.id}
+                      onClick={() => {
+                        setSelectedModel(model.id)
+                        // Add visual feedback for model switch
+                        const switchMessage: Message = {
+                          id: Date.now().toString(),
+                          role: 'assistant',
+                          content: `Switched to ${model.name}. Ready for enhanced AI capabilities.`,
+                          timestamp: new Date(),
+                          agentId: 'system',
+                          model: model.name
+                        }
+                        setMessages(prev => [...prev, switchMessage])
+                      }}
+                      className={`w-full p-3 rounded-lg border transition text-left ${
+                        selectedModel === model.id
+                          ? 'bg-yellow-500/20 border-yellow-500/50 text-yellow-400'
+                          : 'bg-gray-950/30 border-gray-800 hover:border-gray-700 text-gray-300'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div>
+                          <div className="text-sm font-medium">{model.name}</div>
+                          <div className="text-xs text-gray-500">{model.provider}</div>
+                        </div>
+                        <div className={`w-2 h-2 rounded-full ${
+                          model.status === 'active' ? 'bg-green-400' : 'bg-gray-600'
+                        }`} />
+                      </div>
+                    </button>
+                  ))}
+                </div>
               </div>
-            </div>
+
+              {/* Tools Toggle */}
+              <div>
+                <h4 className="text-xs font-semibold text-gray-400 mb-3">⚡ CAPABILITIES</h4>
+                <div className="space-y-2">
+                  {tools.map(tool => (
+                    <button
+                      key={tool.id}
+                      onClick={() => {
+                        if (tool.id === 'ghl-crm') {
+                          router.push('/crm')
+                        } else if (tool.id === 'web-search') {
+                          // Web search functionality
+                          console.log('Web search activated')
+                        } else if (tool.id === 'code-interpreter') {
+                          // Code interpreter functionality
+                          console.log('Code interpreter activated')
+                        } else if (tool.id === 'image-generation') {
+                          // Image generation functionality
+                          console.log('DALL-E 3 activated')
+                        } else if (tool.id === 'file-upload') {
+                          // File upload functionality
+                          console.log('File analysis activated')
+                        } else if (tool.id === 'calendar') {
+                          // Calendar functionality
+                          console.log('Calendar activated')
+                        } else if (tool.id === 'email') {
+                          // Email functionality
+                          console.log('Email activated')
+                        }
+                      }}
+                      className={`w-full p-3 rounded-lg border transition text-left group ${
+                        tool.status === 'connected'
+                          ? 'bg-blue-500/20 border-blue-500/50'
+                          : 'bg-gray-950/30 border-gray-800 hover:border-gray-700'
+                      }`}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-3">
+                          <span className="text-lg">{tool.icon}</span>
+                          <div>
+                            <div className={`text-sm font-medium ${
+                              tool.status === 'connected' ? 'text-blue-400' : 'text-gray-300 group-hover:text-white'
+                            }`}>{tool.name}</div>
+                            <div className="text-xs text-gray-500">{tool.description}</div>
+                          </div>
+                        </div>
+                        <div className={`w-2 h-2 rounded-full ${
+                          tool.status === 'connected' ? 'bg-blue-400' :
+                          tool.status === 'ready' ? 'bg-green-400' : 'bg-gray-600'
+                        }`} />
+                      </div>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Azure Cognitive */}
+              <div>
+                <h4 className="text-xs font-semibold text-gray-400 mb-3">🧠 AZURE COGNITIVE</h4>
+                <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 p-4 rounded-lg border border-blue-500/30">
+                  <div className="flex items-center space-x-2 mb-2">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
+                    <span className="text-sm font-medium text-blue-400">Processing Active</span>
+                  </div>
+                  <p className="text-xs text-gray-300">
+                    Dual neuro-symbolic architecture with emotional calibration and context awareness.
+                  </p>
+                </div>
+              </div>
+
+              {/* Quick Actions */}
+              <div>
+                <h4 className="text-xs font-semibold text-gray-400 mb-3">⚡ QUICK ACTIONS</h4>
+                <div className="space-y-2">
+                  <button 
+                    onClick={() => router.push('/workstation')}
+                    className="w-full p-3 bg-gray-950/30 border border-gray-800 hover:border-gray-700 rounded-lg text-left transition"
+                  >
+                    <div className="flex items-center space-x-3">
+                      <span>🛠️</span>
+                      <span className="text-sm text-gray-300">Workstation</span>
+                    </div>
+                  </button>
+                  <button 
+                    onClick={() => router.push('/connectivity')}
+                    className="w-full p-3 bg-gray-950/30 border border-gray-800 hover:border-gray-700 rounded-lg text-left transition"
+                  >
+                    <div className="flex items-center space-x-3">
+                      <span>🔗</span>
+                      <span className="text-sm text-gray-300">Connectivity</span>
+                    </div>
+                  </button>
+                </div>
+              </div>
+            </>
           ) : (
             <div className="space-y-3">
-              {tools.map(tool => (
+              <div className="text-center">
+                <span className="text-xs text-green-400">●</span>
+              </div>
+              {tools.slice(0, 4).map(tool => (
                 <button
                   key={tool.id}
                   className="w-full p-2 rounded-lg hover:bg-gray-900/50 transition flex justify-center"
