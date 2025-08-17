@@ -305,7 +305,7 @@ export class AzureCognitiveServices {
     return escalationMap[emotionMapping.emotion as keyof typeof escalationMap] || 0
   }
 
-  private async generateContextualResponse(text: string, emotionMapping: { emotion: string, confidence: number }): string {
+  private async generateContextualResponse(text: string, emotionMapping: { emotion: string, confidence: number }): Promise<string> {
     const responseTemplates = {
       urgent: "I understand this is urgent. Let me prioritize this for you right away.",
       frustrated: "I can sense your frustration. Let me help resolve this quickly.",
