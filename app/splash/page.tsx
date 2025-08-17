@@ -10,7 +10,7 @@ export default function SplashPage() {
 
   useEffect(() => {
     setTimeout(() => setIsReady(true), 500)
-    const timer = setTimeout(() => router.push('/home'), 5000)
+    const timer = setTimeout(() => router.push('/warroom'), 5000)
     return () => clearTimeout(timer)
   }, [router])
 
@@ -59,7 +59,7 @@ export default function SplashPage() {
         {/* Enter Button */}
         <div className="mt-20">
           <button
-            onClick={() => router.push('/home')}
+            onClick={() => router.push('/warroom')}
             className="group relative inline-flex items-center"
           >
             <span className="text-gray-600 text-sm tracking-wider transition-colors group-hover:text-yellow-500">
