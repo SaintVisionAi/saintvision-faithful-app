@@ -33,6 +33,9 @@ export default function Header() {
             <Link href="/" className="text-gray-300 hover:text-white transition">
               Home
             </Link>
+            <Link href="/splash" className="text-gray-300 hover:text-white transition">
+              Splash
+            </Link>
             <Link href="/why" className="text-gray-300 hover:text-white transition">
               Why
             </Link>
@@ -86,6 +89,9 @@ export default function Header() {
             <div className="flex flex-col space-y-4">
               <Link href="/" className="text-gray-300 hover:text-white transition">
                 Home
+              </Link>
+              <Link href="/splash" className="text-gray-300 hover:text-white transition">
+                Splash
               </Link>
               <Link href="/why" className="text-gray-300 hover:text-white transition">
                 Why

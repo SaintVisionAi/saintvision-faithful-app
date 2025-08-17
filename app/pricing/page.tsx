@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
+import Header from '@/components/layout/Header'
 
 export default function PricingPage() {
   const router = useRouter()
@@ -85,7 +86,9 @@ export default function PricingPage() {
   ]
 
   return (
-    <div className="min-h-screen bg-black text-white pt-20">
+    <>
+      <Header />
+      <div className="min-h-screen bg-black text-white pt-20">
       <section className="py-20 px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
@@ -197,6 +200,7 @@ export default function PricingPage() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </>
   )
 }

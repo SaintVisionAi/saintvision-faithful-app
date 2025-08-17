@@ -3,12 +3,15 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Image from 'next/image'
+import Header from '@/components/layout/Header'
 
 export default function DashboardPage() {
   const router = useRouter()
   
   return (
-    <div className="min-h-screen bg-black text-white pt-20">
+    <>
+      <Header />
+      <div className="min-h-screen bg-black text-white pt-20">
       <div className="max-w-7xl mx-auto px-6 py-8">
         <div className="mb-8">
           <h1 className="text-3xl font-light mb-2">Welcome back</h1>
@@ -92,6 +95,7 @@ export default function DashboardPage() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   )
 }

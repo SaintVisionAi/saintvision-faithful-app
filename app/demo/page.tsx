@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Header from '@/components/layout/Header'
 
 export default function DemoPage() {
   const [message, setMessage] = useState('')
@@ -26,7 +27,9 @@ export default function DemoPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white p-6">
+    <>
+      <Header />
+      <div className="min-h-screen bg-black text-white p-6 pt-20">
       <div className="max-w-4xl mx-auto">
         <div className="mb-8">
           <h1 className="text-4xl font-bold mb-2">SAINT SAL™ Live Demo</h1>
@@ -69,6 +72,7 @@ export default function DemoPage() {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+    </>
   )
 }

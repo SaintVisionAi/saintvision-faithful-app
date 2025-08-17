@@ -10,9 +10,7 @@ export default function SplashPage() {
 
   useEffect(() => {
     setTimeout(() => setIsReady(true), 500)
-    const timer = setTimeout(() => router.push('/warroom'), 5000)
-    return () => clearTimeout(timer)
-  }, [router])
+  }, [])
 
   return (
     <div className="min-h-screen bg-black flex items-center justify-center relative overflow-hidden">
