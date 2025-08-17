@@ -16,13 +16,13 @@ export default function HomePage() {
           {/* Background */}
           <div className="absolute inset-0 z-0">
             <Image
-              src="/backgrounds/SaintSal + You.png"
-              alt="SaintSal + You - Enterprise Partnership"  
+              src="/backgrounds/FUTURESV.png"
+              alt="Future of Responsible Intelligence"  
               fill
-              className="object-cover opacity-40"
+              className="object-cover opacity-50"
               priority
             />
-            <div className="absolute inset-0 bg-black/40" />
+            <div className="absolute inset-0 bg-black/30" />
           </div>
 
           {/* Main Content */}
@@ -39,12 +39,13 @@ export default function HomePage() {
             {/* Main Logo */}
             <div className="mb-12">
               <Image
-                src="/logos/THE BEST MAIN LOGO + COOKIN.png"
+                src="/logos/THE BEST MAIN LOGO + COOKIN.png?v=2"
                 alt="SAINTVISIONAI"
                 width={400}
                 height={200}
                 className="mx-auto object-contain"
                 priority
+                unoptimized
               />
             </div>
 
