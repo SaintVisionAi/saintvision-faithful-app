@@ -121,10 +121,10 @@ function WarRoomContent() {
       const welcomeMessage: Message = {
         id: '1',
         role: 'assistant',
-        content: 'Welcome to the WarRoom. I\'m SAINT SAL™, your enterprise AI assistant. I have access to our full suite of capabilities and can connect you with specialized agents when needed. What would you like to work on?',
+        content: 'Welcome to the WarRoom. I\'m SAINTSAL™, your AI Concierge & Virtual Mentor powered by HACP™ Protocol.\n\nI coordinate the entire SaintVision AI ecosystem:\n🏢 **EbyTech.ai** - Enterprise automation & FinTech\n💚 **Athen.ai** - Healthcare & legacy planning  \n⚖️ **SVTlegal.ai** - Legal document automation\n🎓 **SVTteach.ai** - Interactive education platform\n\nI\'m your main workhorse for complex business analysis, scaling solutions, and strategic intelligence. What enterprise challenge shall we tackle?',
         timestamp: new Date(),
         agentId: 'default',
-        model: 'SAINT SAL™'
+        model: 'SAINTSAL™'
       }
       setMessages([welcomeMessage])
     }
@@ -284,9 +284,13 @@ function WarRoomContent() {
             <div className="flex items-center justify-between">
               <div className={`${sidebarOpen ? 'block' : 'hidden'}`}>
                 <div className="flex items-center space-x-2">
-                  <div className="w-8 h-8 bg-yellow-500 rounded flex items-center justify-center text-black font-bold text-sm">
-                    SV
-                  </div>
+                  <Image
+                    src="/logos/SVTLOGO.png"
+                    alt="SaintVisionAI"
+                    width={32}
+                    height={32}
+                    className="object-contain"
+                  />
                   <div>
                     <div className="font-bold text-white text-sm">SaintVisionAI™</div>
                     <div className="text-xs text-yellow-500 font-light">Cookin' Knowledge</div>
@@ -478,24 +482,28 @@ function WarRoomContent() {
             <div className="max-w-3xl mx-auto text-center py-20">
               <div className="mb-8 relative">
                 <Image
-                  src="/logos/GOTTAGUY.png"
-                  alt="SAL"
+                  src="/logos/THE BEST MAIN LOGO + COOKIN.png"
+                  alt="SaintVisionAI"
                   width={200}
-                  height={100}
-                  className="mx-auto"
+                  height={120}
+                  className="mx-auto object-contain"
                 />
               </div>
-              <h2 className="text-3xl font-thin mb-4 text-white">Strategic Command Activated</h2>
+              <h2 className="text-3xl font-thin mb-4 text-white">SAINTSAL™ Ecosystem Ready</h2>
               <p className="text-gray-500 mb-8">
-                I'm SAL, your AI business partner. Let's dominate your market.
+                Enterprise AI intelligence with access to the full SaintVision platform. Choose your productivity focus:
               </p>
               
-              <div className="grid grid-cols-2 gap-4 max-w-2xl mx-auto">
+              <div className="grid grid-cols-2 gap-4 max-w-3xl mx-auto">
                 {[
-                  '📊 Analyze my business metrics',
-                  '🚀 Create growth strategy',
-                  '💰 Optimize revenue streams',
-                  '🎯 Identify market opportunities'
+                  '🏢 EbyTech: Automate my business processes',
+                  '💚 Athen: Plan healthcare or legacy strategy', 
+                  '⚖️ SVTlegal: Draft legal documents & contracts',
+                  '🎓 SVTteach: Create training programs',
+                  '📊 Analyze business metrics & KPIs',
+                  '🚀 Scale operations & growth strategy',
+                  '💰 Optimize financial models & revenue',
+                  '🎯 Market analysis & competitive intelligence'
                 ].map((suggestion, i) => (
                   <button
                     key={i}
@@ -703,16 +711,51 @@ function WarRoomContent() {
                 </div>
               </div>
 
-              {/* Azure Cognitive */}
+              {/* SaintVision AI Ecosystem */}
               <div>
-                <h4 className="text-xs font-semibold text-gray-400 mb-3">🧠 AZURE COGNITIVE</h4>
-                <div className="bg-gradient-to-r from-blue-500/20 to-purple-500/20 p-4 rounded-lg border border-blue-500/30">
+                <h4 className="text-xs font-semibold text-gray-400 mb-3">🏢 SAINTVISION ECOSYSTEM</h4>
+                <div className="space-y-2">
+                  <div className="bg-gradient-to-r from-yellow-500/20 to-yellow-600/10 p-3 rounded-lg border border-yellow-500/30">
+                    <div className="flex items-center space-x-2 mb-1">
+                      <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" />
+                      <span className="text-xs font-medium text-yellow-400">EbyTech.ai</span>
+                    </div>
+                    <p className="text-xs text-gray-300">Enterprise & FinTech Automation</p>
+                  </div>
+                  <div className="bg-gradient-to-r from-green-500/20 to-green-600/10 p-3 rounded-lg border border-green-500/30">
+                    <div className="flex items-center space-x-2 mb-1">
+                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+                      <span className="text-xs font-medium text-green-400">Athen.ai</span>
+                    </div>
+                    <p className="text-xs text-gray-300">Healthcare & Legacy Planning</p>
+                  </div>
+                  <div className="bg-gradient-to-r from-purple-500/20 to-purple-600/10 p-3 rounded-lg border border-purple-500/30">
+                    <div className="flex items-center space-x-2 mb-1">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" />
+                      <span className="text-xs font-medium text-purple-400">SVTlegal.ai</span>
+                    </div>
+                    <p className="text-xs text-gray-300">Legal Document Automation</p>
+                  </div>
+                  <div className="bg-gradient-to-r from-blue-500/20 to-blue-600/10 p-3 rounded-lg border border-blue-500/30">
+                    <div className="flex items-center space-x-2 mb-1">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
+                      <span className="text-xs font-medium text-blue-400">SVTteach.ai</span>
+                    </div>
+                    <p className="text-xs text-gray-300">Interactive Education Platform</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* HACP™ Protocol */}
+              <div>
+                <h4 className="text-xs font-semibold text-gray-400 mb-3">🧠 HACP™ PROTOCOL</h4>
+                <div className="bg-gradient-to-r from-yellow-500/20 to-yellow-600/10 p-4 rounded-lg border border-yellow-500/30">
                   <div className="flex items-center space-x-2 mb-2">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
-                    <span className="text-sm font-medium text-blue-400">Processing Active</span>
+                    <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" />
+                    <span className="text-sm font-medium text-yellow-400">Intelligence Active</span>
                   </div>
                   <p className="text-xs text-gray-300">
-                    Dual neuro-symbolic architecture with emotional calibration and context awareness.
+                    Patent #10,290,222 - Adaptive AI with emotional calibration and intelligent escalation.
                   </p>
                 </div>
               </div>

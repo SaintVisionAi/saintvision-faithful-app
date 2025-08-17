@@ -32,11 +32,11 @@ export default function SplashPage() {
         {/* Main Logo */}
         <div className="mb-8">
           <Image
-            src="/logos/GOTTAGUY.png"
+            src="/logos/THE BEST MAIN LOGO + COOKIN.png"
             alt="SAINTVISIONAI"
-            width={300}
-            height={150}
-            className="mx-auto"
+            width={350}
+            height={200}
+            className="mx-auto object-contain"
             priority
           />
         </div>

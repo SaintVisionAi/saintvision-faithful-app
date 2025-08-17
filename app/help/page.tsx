@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
 
 export default function HelpPage() {
   const [selectedCategory, setSelectedCategory] = useState('general')
@@ -80,11 +79,11 @@ export default function HelpPage() {
 
         <div className="relative z-10 max-w-6xl mx-auto text-center">
           <Image
-            src="/logos/GOTTAGUY.png"
-            alt="SAL"
-            width={100}
-            height={100}
-            className="mx-auto mb-8"
+            src="/logos/THE BEST MAIN LOGO + COOKIN.png"
+            alt="SaintVisionAI"
+            width={120}
+            height={80}
+            className="mx-auto mb-8 object-contain"
           />
           <h1 className="text-5xl md:text-6xl font-extralight mb-6">
             24/7 Help Desk
@@ -157,7 +156,6 @@ export default function HelpPage() {
         </div>
       </section>
       </div>
-      <Footer />
     </>
   )
 }

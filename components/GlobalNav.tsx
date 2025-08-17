@@ -30,10 +30,10 @@ export default function GlobalNav() {
             className="flex items-center space-x-3 cursor-pointer group"
           >
             <Image
-              src="/logos/GOTTAGUY.png"
+              src="/logos/SVTLOGO.png"
               alt="SAINTVISIONAI"
-              width={36}
-              height={36}
+              width={40}
+              height={40}
               className="object-contain group-hover:opacity-80 transition"
             />
             <div className="hidden sm:block">

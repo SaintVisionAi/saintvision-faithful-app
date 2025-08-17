@@ -1,7 +1,6 @@
 'use client'
 
 import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
 
 export default function InstitutePage() {
   return (
@@ -198,7 +197,6 @@ export default function InstitutePage() {
         </section>
       </div>
       </div>
-      <Footer />
     </>
   )
 }

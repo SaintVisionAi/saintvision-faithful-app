@@ -90,11 +90,11 @@ export default function PricingPage() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <Image
-              src="/logos/GOTTAGUY.png"
+              src="/logos/SVTLOGO.png"
               alt="SAINTVISIONAI"
               width={80}
               height={80}
-              className="mx-auto mb-6"
+              className="mx-auto mb-6 object-contain"
             />
             <h1 className="text-5xl md:text-6xl font-extralight mb-6">
               Simple, Transparent

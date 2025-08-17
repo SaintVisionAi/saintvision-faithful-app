@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
 
 export default function SVGBrokeragePage() {
   const router = useRouter()
@@ -392,7 +391,6 @@ export default function SVGBrokeragePage() {
         </div>
       </section>
       </div>
-      <Footer />
     </>
   )
 }

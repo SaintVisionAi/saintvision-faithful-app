@@ -28,11 +28,11 @@ export default function SignUpPage() {
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <Image
-            src="/logos/GOTTAGUY.png"
+            src="/logos/SVTLOGO.png"
             alt="SAINTVISIONAI"
             width={80}
             height={80}
-            className="mx-auto mb-6"
+            className="mx-auto mb-6 object-contain"
           />
           <h1 className="text-3xl font-light tracking-wider text-white mb-2">
             Join SAINTVISIONAI

@@ -4,7 +4,6 @@ import { useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { useState } from 'react'
 import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
 
 export default function WhyPage() {
   const router = useRouter()
@@ -19,7 +18,7 @@ export default function WhyPage() {
         {/* SAINTSAL + YOU Background - EXACT COPY */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/backgrounds/saintgotyoback.png"
+            src="/backgrounds/SaintSal + You.png"
             alt="SaintSal + You - Enterprise Partnership"  
             fill
             className="object-cover opacity-30"
@@ -531,7 +530,6 @@ export default function WhyPage() {
       </section>
 
       </div>
-      <Footer />
     </>
   )
 }

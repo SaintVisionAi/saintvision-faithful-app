@@ -232,10 +232,10 @@ export default function CompanionsPage() {
                       🚀 Launch
                     </button>
                     <button
-                      onClick={() => router.push(`/companions/${companion.id}/settings`)}
+                      onClick={() => router.push(`/companions/${companion.id}/console`)}
                       className="px-4 py-2 bg-gray-800 rounded-lg hover:bg-gray-700 transition text-sm"
                     >
-                      ⚙️ Settings
+                      💬 Console
                     </button>
                   </div>
                   

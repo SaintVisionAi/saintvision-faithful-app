@@ -3,7 +3,6 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Header from '@/components/layout/Header'
-import Footer from '@/components/layout/Footer'
 
 export default function CompanionPricingPage() {
   const router = useRouter()
@@ -376,7 +375,6 @@ export default function CompanionPricingPage() {
           </div>
         </section>
       </div>
-      <Footer />
     </>
   )
 }

@@ -1,6 +1,7 @@
 'use client'
 
 import { usePathname } from 'next/navigation'
+import Image from 'next/image'
 
 export default function GlobalFooter() {
   const pathname = usePathname()
@@ -12,14 +13,23 @@ export default function GlobalFooter() {
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1">
-            <div className="mb-4">
-              <div className="text-lg font-light tracking-wider text-white">SAINTVISIONAI</div>
-              <div className="text-xs text-gray-600 tracking-widest mt-1">RESPONSIBLE INTELLIGENCE</div>
+            <div className="mb-4 flex items-center space-x-3">
+              <Image
+                src="/logos/THE BEST MAIN LOGO + COOKIN.png"
+                alt="SaintVisionAI"
+                width={48}
+                height={48}
+                className="object-contain"
+              />
+              <div>
+                <div className="text-lg font-light tracking-wider text-white">SAINTVISIONAI</div>
+                <div className="text-xs text-gray-600 tracking-widest mt-1">RESPONSIBLE INTELLIGENCE</div>
+              </div>
             </div>
             <div className="text-xs text-gray-500 leading-relaxed">
               HACP™ Protocol Protected
               <br />
-              Patent Pending #99329797
+              Patent #10,290,222
             </div>
           </div>
 

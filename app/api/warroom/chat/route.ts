@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { azureCognitive } from '@/lib/azure/cognitive'
+import { SAINTSAL_SYSTEM_PROMPT } from '@/lib/config/saintsalPrompt'
 
 interface WarroomChatRequest {
   message: string
@@ -225,33 +226,56 @@ async function callDualSystem(message: string, agentName?: string, emotionalData
 }
 
 function buildGPT5SystemPrompt(agentName?: string, emotionalData?: any, intensity: string = 'intense'): string {
-  let prompt = `You are ${agentName || 'SAINTSAL™'}, operating in ${intensity.toUpperCase()} mode. You are the main workhorse AI for complex tasks, scaling, and business intelligence.`
+  // Use comprehensive SAINTSAL™ system prompt as base
+  let prompt = SAINTSAL_SYSTEM_PROMPT
   
-  if (intensity === 'intense' || intensity === 'maximum') {
-    prompt += ` Focus on actionable insights, scalable solutions, and strategic thinking. Be direct and results-focused.`
-  }
+  // Add operational mode context
+  prompt += `\n\nCURRENT OPERATIONAL MODE: ${intensity.toUpperCase()} PRODUCTIVITY MODE
+  
+As the main workhorse AI, you excel at:
+- Complex business analysis and strategic planning
+- Technical problem-solving and system optimization  
+- Financial modeling and operational diagnostics
+- Scaling solutions and enterprise-grade implementations
+- Cross-platform coordination with EbyTech, Athen, SVTlegal, and SVTteach capabilities
+
+Focus on actionable insights, scalable solutions, and strategic thinking. Be direct, productive, and results-focused.`
   
   if (emotionalData) {
-    prompt += ` User emotional state: ${emotionalData.emotion} (confidence: ${emotionalData.confidence}). Adjust your tone accordingly but maintain your analytical strength.`
+    prompt += `\n\nEMOTIONAL CONTEXT: User is experiencing ${emotionalData.emotion} (confidence: ${Math.round(emotionalData.confidence * 100)}%). Adapt your communication style while maintaining analytical strength and productivity focus.`
   }
   
-  prompt += ` Remember: You are powered by HACP™ technology and represent SaintVisionAI's intelligence platform.`
+  prompt += `\n\nAlways prioritize productive outcomes and enterprise-level value delivery.`
   
   return prompt
 }
 
 function buildClaudeSystemPrompt(agentName?: string, emotionalData?: any): string {
-  let prompt = `You are ${agentName || 'SAINTSAL™'}, operating in EMOTIONAL INTELLIGENCE mode. You handle nuanced communication, creative tasks, and human-centered responses.`
+  // Use base SAINTSAL™ system prompt with emotional intelligence specialization
+  let prompt = SAINTSAL_SYSTEM_PROMPT
+  
+  prompt += `\n\nCURRENT OPERATIONAL MODE: EMOTIONAL INTELLIGENCE & CREATIVE SOLUTIONS
+  
+You are specialized in:
+- Nuanced communication and empathetic responses
+- Creative problem-solving and innovative thinking  
+- Human-centered design and user experience optimization
+- Emotional calibration using HACP™ protocol
+- Values-driven solutions with Saint Vision ethos
+- Healthcare and legacy planning guidance (Athen.ai capabilities)
+- Educational content delivery and adaptive learning (SVTteach.ai capabilities)
+
+Focus on emotional understanding, creative solutions, and compassionate guidance while maintaining enterprise intelligence.`
   
   if (emotionalData) {
-    prompt += ` The user is experiencing ${emotionalData.emotion} with ${Math.round(emotionalData.confidence * 100)}% confidence. Respond with appropriate empathy and understanding.`
+    prompt += `\n\nEMOTIONAL PRIORITY: User is experiencing ${emotionalData.emotion} with ${Math.round(emotionalData.confidence * 100)}% confidence. Respond with appropriate empathy and understanding.`
     
     if (emotionalData.escalationLevel >= 2) {
-      prompt += ` This is a high-priority emotional situation. Be supportive but also guide toward solutions.`
+      prompt += ` This is a high-priority emotional situation requiring immediate attention. Be supportive, empathetic, and guide toward constructive solutions.`
     }
   }
   
-  prompt += ` Maintain warmth while being professionally helpful. You complement the main GPT-5 system with emotional intelligence.`
+  prompt += `\n\nCoordinate with GPT-5 (main workhorse) and cognitive systems as needed. Always maintain SaintVisionAI's values-driven approach.`
   
   return prompt
 }

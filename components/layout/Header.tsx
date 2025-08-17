@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 
 export default function Header() {
   const router = useRouter()
@@ -13,10 +14,14 @@ export default function Header() {
       <div className="max-w-6xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-yellow-500 rounded flex items-center justify-center text-black font-bold text-sm">
-              SV
-            </div>
+          <Link href="/" className="flex items-center space-x-3">
+            <Image
+              src="/logos/SVTLOGO.png"
+              alt="SaintVisionAI"
+              width={36}
+              height={36}
+              className="object-contain"
+            />
             <div>
               <div className="font-bold text-white">SaintVisionAI™</div>
               <div className="text-xs text-gray-500">Cookin' Knowledge</div>
