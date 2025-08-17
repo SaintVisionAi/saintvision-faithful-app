@@ -320,44 +320,79 @@ function WarRoomContent() {
             </button>
           </div>
 
-          {/* Active Agent Display */}
-          {sidebarOpen && activeAgent && (
+          {/* SAINTSAL™ Status */}
+          {sidebarOpen && (
             <div className="px-4 pb-4">
-              <div className="bg-gradient-to-r from-blue-500/10 to-blue-600/10 rounded-lg p-3 border border-blue-500/30">
+              <div className="bg-gradient-to-r from-yellow-500/10 to-yellow-600/10 rounded-lg p-3 border border-yellow-500/30">
                 <div className="flex items-center space-x-3">
-                  <div className="w-10 h-10 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-lg flex items-center justify-center text-lg">
-                    {activeAgent.avatar}
+                  <div className="w-10 h-10 bg-gradient-to-br from-yellow-500/20 to-yellow-600/20 rounded-lg flex items-center justify-center text-lg">
+                    🤖
                   </div>
                   <div className="flex-1">
-                    <div className="text-sm font-medium text-blue-400">{activeAgent.name}</div>
-                    <div className="text-xs text-gray-500">{activeAgent.specialization}</div>
+                    <div className="text-sm font-medium text-yellow-400">SAINTSAL™ Ready</div>
+                    <div className="text-xs text-gray-500">Full Ecosystem Active</div>
                   </div>
                 </div>
               </div>
             </div>
           )}
 
-          {/* Agent Switcher */}
+          {/* PRODUCTIVE BUSINESS TOOLS */}
           {sidebarOpen && (
             <div className="px-4 pb-4">
-              <div className="text-xs tracking-[0.3em] text-gray-600 mb-3">AI AGENTS</div>
+              <div className="text-xs tracking-[0.3em] text-gray-600 mb-3">PRODUCTIVE TOOLS</div>
               <div className="space-y-2">
-                {availableAgents.map(agent => (
-                  <button
-                    key={agent.id}
-                    onClick={() => switchAgent(agent)}
-                    className={`w-full text-left p-2 rounded-lg transition flex items-center space-x-2 ${
-                      activeAgent?.id === agent.id 
-                        ? 'bg-blue-500/20 border border-blue-500/30 text-blue-400' 
-                        : 'bg-gray-950/30 hover:bg-gray-900/50 border border-gray-900 hover:border-gray-800 text-gray-300'
-                    }`}
-                  >
-                    <span className="text-sm">{agent.avatar}</span>
-                    <div className="flex-1 min-w-0">
-                      <div className="text-xs font-medium truncate">{agent.name.replace(' SAL', '')}</div>
-                    </div>
-                  </button>
-                ))}
+                <button className="w-full text-left p-3 rounded-lg transition flex items-center space-x-3 bg-gray-950/30 hover:bg-gray-900/50 border border-gray-900 hover:border-yellow-500/30">
+                  <span className="text-lg">📊</span>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-xs font-medium text-white">Business Analytics</div>
+                    <div className="text-xs text-gray-500">KPI Dashboard & Reports</div>
+                  </div>
+                </button>
+                
+                <button className="w-full text-left p-3 rounded-lg transition flex items-center space-x-3 bg-gray-950/30 hover:bg-gray-900/50 border border-gray-900 hover:border-yellow-500/30">
+                  <span className="text-lg">💰</span>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-xs font-medium text-white">Financial Modeling</div>
+                    <div className="text-xs text-gray-500">P&L, Cash Flow, Forecasts</div>
+                  </div>
+                </button>
+                
+                <button className="w-full text-left p-3 rounded-lg transition flex items-center space-x-3 bg-gray-950/30 hover:bg-gray-900/50 border border-gray-900 hover:border-yellow-500/30">
+                  <span className="text-lg">⚖️</span>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-xs font-medium text-white">Legal Documents</div>
+                    <div className="text-xs text-gray-500">Contracts, NDAs, Compliance</div>
+                  </div>
+                </button>
+                
+                <button className="w-full text-left p-3 rounded-lg transition flex items-center space-x-3 bg-gray-950/30 hover:bg-gray-900/50 border border-gray-900 hover:border-yellow-500/30">
+                  <span className="text-lg">🚀</span>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-xs font-medium text-white">Growth Strategy</div>
+                    <div className="text-xs text-gray-500">Market Analysis & Scaling</div>
+                  </div>
+                </button>
+                
+                <button className="w-full text-left p-3 rounded-lg transition flex items-center space-x-3 bg-gray-950/30 hover:bg-gray-900/50 border border-gray-900 hover:border-yellow-500/30">
+                  <span className="text-lg">🔗</span>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-xs font-medium text-white">CRM Automation</div>
+                    <div className="text-xs text-gray-500">Lead Management & Follow-up</div>
+                  </div>
+                </button>
+              </div>
+              
+              <div className="mt-4 pt-4 border-t border-gray-900">
+                <button 
+                  onClick={() => router.push('/agents')}
+                  className="w-full text-left p-2 rounded-lg transition flex items-center space-x-2 bg-gray-800/30 hover:bg-gray-700/50 border border-gray-800"
+                >
+                  <span className="text-sm">🤖</span>
+                  <div className="flex-1 min-w-0">
+                    <div className="text-xs font-medium text-gray-400">More AI Agents</div>
+                  </div>
+                </button>
               </div>
             </div>
           )}
@@ -615,99 +650,92 @@ function WarRoomContent() {
         <div className="flex-1 overflow-y-auto p-4 space-y-6">
           {rightPanelOpen ? (
             <>
-              {/* Model Selection */}
+              {/* LLM INTELLIGENCE CORE */}
               <div>
-                <h4 className="text-xs font-semibold text-gray-400 mb-3">🤖 AI MODEL</h4>
+                <h4 className="text-xs font-semibold text-gray-400 mb-3">🧠 LLM INTELLIGENCE</h4>
                 <div className="space-y-2">
-                  {models.map(model => (
-                    <button
-                      key={model.id}
-                      onClick={() => {
-                        setSelectedModel(model.id)
-                        // Add visual feedback for model switch
-                        const switchMessage: Message = {
-                          id: Date.now().toString(),
-                          role: 'assistant',
-                          content: `Switched to ${model.name}. Ready for enhanced AI capabilities.`,
-                          timestamp: new Date(),
-                          agentId: 'system',
-                          model: model.name
-                        }
-                        setMessages(prev => [...prev, switchMessage])
-                      }}
-                      className={`w-full p-3 rounded-lg border transition text-left ${
-                        selectedModel === model.id
-                          ? 'bg-yellow-500/20 border-yellow-500/50 text-yellow-400'
-                          : 'bg-gray-950/30 border-gray-800 hover:border-gray-700 text-gray-300'
-                      }`}
-                    >
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <div className="text-sm font-medium">{model.name}</div>
-                          <div className="text-xs text-gray-500">{model.provider}</div>
-                        </div>
-                        <div className={`w-2 h-2 rounded-full ${
-                          model.status === 'active' ? 'bg-green-400' : 'bg-gray-600'
-                        }`} />
-                      </div>
-                    </button>
-                  ))}
+                  <div className="bg-gradient-to-r from-yellow-500/20 to-yellow-600/10 p-3 rounded-lg border border-yellow-500/30">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" />
+                      <span className="text-sm font-medium text-yellow-400">GPT-5 Turbo</span>
+                    </div>
+                    <p className="text-xs text-gray-300">Main workhorse - Complex analysis & strategy</p>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-blue-500/20 to-blue-600/10 p-3 rounded-lg border border-blue-500/30">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" />
+                      <span className="text-sm font-medium text-blue-400">Claude 4 Sonnet</span>
+                    </div>
+                    <p className="text-xs text-gray-300">Emotional intelligence & creative solutions</p>
+                  </div>
+                  
+                  <div className="bg-gradient-to-r from-purple-500/20 to-purple-600/10 p-3 rounded-lg border border-purple-500/30">
+                    <div className="flex items-center space-x-2 mb-2">
+                      <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" />
+                      <span className="text-sm font-medium text-purple-400">SAINTSAL™ RAG</span>
+                    </div>
+                    <p className="text-xs text-gray-300">Knowledge retrieval from business database</p>
+                  </div>
                 </div>
               </div>
 
-              {/* Tools Toggle */}
+              {/* SAINTVISION TECH STACK */}
               <div>
-                <h4 className="text-xs font-semibold text-gray-400 mb-3">⚡ CAPABILITIES</h4>
+                <h4 className="text-xs font-semibold text-gray-400 mb-3">⚡ SAINTVISION TECH</h4>
                 <div className="space-y-2">
-                  {tools.map(tool => (
-                    <button
-                      key={tool.id}
-                      onClick={() => {
-                        if (tool.id === 'ghl-crm') {
-                          router.push('/crm')
-                        } else if (tool.id === 'web-search') {
-                          // Web search functionality
-                          console.log('Web search activated')
-                        } else if (tool.id === 'code-interpreter') {
-                          // Code interpreter functionality
-                          console.log('Code interpreter activated')
-                        } else if (tool.id === 'image-generation') {
-                          // Image generation functionality
-                          console.log('DALL-E 3 activated')
-                        } else if (tool.id === 'file-upload') {
-                          // File upload functionality
-                          console.log('File analysis activated')
-                        } else if (tool.id === 'calendar') {
-                          // Calendar functionality
-                          console.log('Calendar activated')
-                        } else if (tool.id === 'email') {
-                          // Email functionality
-                          console.log('Email activated')
-                        }
-                      }}
-                      className={`w-full p-3 rounded-lg border transition text-left group ${
-                        tool.status === 'connected'
-                          ? 'bg-blue-500/20 border-blue-500/50'
-                          : 'bg-gray-950/30 border-gray-800 hover:border-gray-700'
-                      }`}
-                    >
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-3">
-                          <span className="text-lg">{tool.icon}</span>
-                          <div>
-                            <div className={`text-sm font-medium ${
-                              tool.status === 'connected' ? 'text-blue-400' : 'text-gray-300 group-hover:text-white'
-                            }`}>{tool.name}</div>
-                            <div className="text-xs text-gray-500">{tool.description}</div>
-                          </div>
-                        </div>
-                        <div className={`w-2 h-2 rounded-full ${
-                          tool.status === 'connected' ? 'bg-blue-400' :
-                          tool.status === 'ready' ? 'bg-green-400' : 'bg-gray-600'
-                        }`} />
+                  <button 
+                    onClick={() => router.push('/crm')}
+                    className="w-full p-3 rounded-lg border transition text-left group bg-green-500/20 border-green-500/50"
+                  >
+                    <div className="flex items-center space-x-3">
+                      <span className="text-lg">🎯</span>
+                      <div>
+                        <div className="text-sm font-medium text-green-400">GHL CRM Integration</div>
+                        <div className="text-xs text-gray-300">Connected & Active</div>
                       </div>
-                    </button>
-                  ))}
+                    </div>
+                  </button>
+                  
+                  <div className="bg-gray-950/30 border border-gray-800 rounded-lg p-3">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-lg">🔍</span>
+                      <div>
+                        <div className="text-sm font-medium text-gray-300">Knowledge RAG</div>
+                        <div className="text-xs text-gray-500">Business data retrieval</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gray-950/30 border border-gray-800 rounded-lg p-3">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-lg">📊</span>
+                      <div>
+                        <div className="text-sm font-medium text-gray-300">Analytics Engine</div>
+                        <div className="text-xs text-gray-500">Real-time business insights</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gray-950/30 border border-gray-800 rounded-lg p-3">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-lg">🗂️</span>
+                      <div>
+                        <div className="text-sm font-medium text-gray-300">Document AI</div>
+                        <div className="text-xs text-gray-500">OCR & intelligent analysis</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-gray-950/30 border border-gray-800 rounded-lg p-3">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-lg">🔊</span>
+                      <div>
+                        <div className="text-sm font-medium text-gray-300">Voice Processing</div>
+                        <div className="text-xs text-gray-500">Azure Speech Services</div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
