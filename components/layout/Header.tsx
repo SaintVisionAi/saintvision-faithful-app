@@ -51,8 +51,8 @@ export default function Header() {
             <Link href="/pricing" className="text-gray-300 hover:text-white transition">
               Pricing
             </Link>
-            <Link href="/help" className="text-gray-300 hover:text-white transition">
-              Help
+            <Link href="/helpdesk" className="text-gray-300 hover:text-white transition">
+              Help Desk
             </Link>
           </nav>
 
